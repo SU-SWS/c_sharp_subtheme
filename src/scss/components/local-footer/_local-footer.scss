@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.su-local-footer  {
+  .su-lockup__cell2,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: $su-font-slab;
+  }
+
+  #signup-submit,
+  .su-link--internal,
+  p,
+  a {
+    font-family: $csharp-font--roboto;
+  }
+
+  #signup-submit,
+  .su-button,
+  .su-button--big,
+  .su-link--internal {
+    background-color: $csharp-color-green;
+
+    &:focus,
+    &:hover,
+    &:active {
+      background-color: $su-color-black;
+    }
+  }
+
+  .su-button--secondary {
+    box-shadow: inset 0 0 0 2px $csharp-color-green;
+    color: $csharp-color-green;
+  }
+
+  .su-local-footer__action-links {
+    a {
+      color: $csharp-color-green;
+
+      &::after {
+        background-color: $csharp-color-green;
+      }
+
+      &:focus,
+      &:hover,
+      &:active {
+        color:  $su-color-black;
+        
+        &::after {
+          background-color: $su-color-black;
+        }
+
+        svg {
+          fill: $su-color-black;
+        }
+      }
+
+      svg {
+        fill: $csharp-color-green;
+      }
+    }
+  }
+}
