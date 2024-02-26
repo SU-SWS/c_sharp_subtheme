@@ -1,9 +1,58 @@
 @charset "UTF-8";
 
-// override default button styles here and add additional button classes as needed.
-//.su-button {
-//    include button mixins here
-//  &:hover, &:focus {
-//    include button mixins here
-//  }
-//}
+#back-to-top,
+#signup-submit,
+.su-button,
+.su-button--big,
+.su-link--internal {
+  background-color: $csharp-color-green;
+
+  &:focus,
+  &:hover,
+  &:active {
+    background-color: $su-color-black;
+  }
+
+  &.su-link {
+    background-color: $csharp-color-green;
+  }
+
+  &.mailto {
+    &:focus,
+    &:hover,
+    &:active {
+      color:  $su-color-white;
+
+      svg {
+        fill: $su-color-white;
+      }
+    }
+  }
+}
+
+// Override conflicting styles
+a {
+  &.su-button--secondary {
+    box-shadow: inset 0 0 0 2px $csharp-color-green;
+    color: $csharp-color-green;
+  }
+
+  &.su-link--external {
+    &.su-button--secondary {
+      box-shadow: inset 0 0 0 2px $csharp-color-green;
+      color: $csharp-color-green;
+
+      &::after {
+        background-color: $csharp-color-green;
+      }
+    }
+  }
+
+  &.mailto {
+    &.su-button--secondary {
+      svg {
+        fill: $csharp-color-green;
+      }
+    }
+  }
+}

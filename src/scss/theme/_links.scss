@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+.su-link,
+.su-link--action,
+.su-link--internal,
+.filter-menu .topics__collapsable-menu,
+a {
+  color: $csharp-color-green;
+
+  &::after {
+    background-color: $csharp-color-green;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    color:  $su-color-black;
+    
+    &::after {
+      background-color: $su-color-black;
+    }
+
+    svg {
+      fill: $su-color-black;
+    }
+  }
+
+  &.mailto {
+    &::after {
+      background-color: $csharp-color-green;
+    }
+
+    svg {
+      fill: $csharp-color-green;
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+      color:  $su-color-black;
+      
+      &::after {
+        background-color: $su-color-black;
+      }
+
+      svg {
+        fill: $su-color-black;
+      }
+    }
+  }
+}
