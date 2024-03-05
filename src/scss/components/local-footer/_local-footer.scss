@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.su-local-footer  {
+  .su-lockup__cell2,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: $su-font-slab;
+  }
+
+  #signup-submit,
+  .su-link--internal,
+  p,
+  a {
+    font-family: $csharp-font--roboto;
+  }
+}
