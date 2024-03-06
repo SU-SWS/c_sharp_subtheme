@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.su-masthead {
+  .su-lockup--option-o {
+    .su-lockup__cell1 {
+      border-right: 1px solid #2e2d29;
+      padding-right: 2rem;
+      max-width: max-content;
+    }
+
+    .su-lockup__line4{
+      font-family: $su-font-slab;
+      margin-top: 1.5rem;
+      text-transform: unset;
+      font-weight: 400;
+      text-align: end;
+    }
+  }
+}
