@@ -10,6 +10,7 @@
   @media (min-width: 992px) {
     display: block;
     position: relative;
+    height: 100%;
     width: 100%;
     margin: 0 auto;
   }
@@ -27,6 +28,7 @@
     background: transparent;
     padding: 0;
     font-size: 19px;
+    height: 100%;
     width: 100%;
 
   }
@@ -105,7 +107,7 @@
   @media (min-width: 992px) {
     display: none;
   }
-`,so=({})=>{var e,t,n;ie((()=>{const e=new CustomEvent("web-component-mount",{detail:{target:t,parent:n},bubbles:!0});return dispatchEvent(e),()=>{const e=new CustomEvent("web-component-unmount",{detail:{target:t,parent:n},bubbles:!0});dispatchEvent(e)}}),[t=no]);const[r,o]=ne([]),[i,a]=ne(!1),s=ae(null);oe((()=>{fetch(qr+"/jsonapi/menu_items/main").then((e=>e.json())).then((e=>{return o((t=e)?Vr.deserialize(t,n):null);var t,n})).catch((e=>console.error(e)))}),[]);const c=ce((e=>{"Escape"===e.key&&i&&(a(!1),s.current.focus())}),[i]);oe((()=>{i&&document.addEventListener("keydown",c),i||document.removeEventListener("keydown",c)}),[i]);const l=Jr(r);if(!l.items||0===(null===(e=l.items)||void 0===e?void 0:e.length))return Zr("div",{});const u=document.getElementsByClassName("su-multi-menu");return u.length>0&&u[0].remove(),Zr(Kr,{component:"nav",style:{position:"relative"},onOutsideFocus:()=>a(!1),children:[Zr(io,{ref:s,onClick:()=>a(!i),"aria-expanded":i,children:[Zr(i?eo:Xr,{}),i?"Close":"Menu"]}),Zr(ro,{open:i,children:[Zr(ao,{children:Zr("form",{action:"/search",method:"get",children:[Zr("label",{htmlFor:"mobile-search-input",children:"Keyword Search"}),Zr("div",{style:{position:"relative"},children:[Zr("input",{id:"mobile-search-input",type:"text",placeholder:"Search this site",name:"key"}),Zr("button",{type:"submit",children:[Zr(to,{style:{width:"25px",height:"25px"}}),Zr("span",{className:"visually-hidden",children:"Submit Search"})]})]})]})}),Zr(oo,{children:l.items.map((e=>Zr(vo,{...e},e.id)))})]})]})},co=Tr.button`
+`,so=({})=>{var e,t,n;ie((()=>{const e=new CustomEvent("web-component-mount",{detail:{target:t,parent:n},bubbles:!0});return dispatchEvent(e),()=>{const e=new CustomEvent("web-component-unmount",{detail:{target:t,parent:n},bubbles:!0});dispatchEvent(e)}}),[t=no]);const[r,o]=ne([]),[i,a]=ne(!1),s=ae(null);oe((()=>{fetch(qr+"/jsonapi/menu_items/main").then((e=>e.json())).then((e=>{return o((t=e)?Vr.deserialize(t,n):null);var t,n})).catch((e=>console.error(e)))}),[]);const c=ce((e=>{"Escape"===e.key&&i&&(a(!1),s.current.focus())}),[i]);oe((()=>{i&&document.addEventListener("keydown",c),i||document.removeEventListener("keydown",c)}),[i]);const l=Jr(r);if(!l.items||0===(null===(e=l.items)||void 0===e?void 0:e.length))return Zr("div",{});const u=document.getElementsByClassName("su-multi-menu");return u.length>0&&u[0].remove(),Zr(Kr,{component:"nav",style:{position:"relative",height:"100%"},onOutsideFocus:()=>a(!1),children:[Zr(io,{ref:s,onClick:()=>a(!i),"aria-expanded":i,children:[Zr(i?eo:Xr,{}),i?"Close":"Menu"]}),Zr(ro,{open:i,children:[Zr(ao,{children:Zr("form",{action:"/search",method:"get",children:[Zr("label",{htmlFor:"mobile-search-input",children:"Keyword Search"}),Zr("div",{style:{position:"relative"},children:[Zr("input",{id:"mobile-search-input",type:"text",placeholder:"Search this site",name:"key"}),Zr("button",{type:"submit",children:[Zr(to,{style:{width:"25px",height:"25px"}}),Zr("span",{className:"visually-hidden",children:"Submit Search"})]})]})]})}),Zr(oo,{children:l.items.map((e=>Zr(_o,{...e},e.id)))})]})]})},co=Tr.button`
   color: #ffffff;
   background: #b1040e;
   border: none;
@@ -127,9 +129,11 @@
   }
 
   @media (min-width: 992px) {
-    color: #b1040e;
+    // color: #b1040e;
+    color: #2e2d29;
     background: transparent;
     border-radius: 0;
+    align-self: center;
 
     &:hover, &:focus {
       border-bottom: 1px solid #2e2d29;
@@ -148,10 +152,14 @@
   @media (min-width: 992px) {
     width: ${e=>0===e.level?"fit-content":"100%"};
     margin-bottom: ${e=>0===e.level?"6px":""};
+    height: 100%;
+    margin-bottom: 0;
+    align-items: end;
   }
 `,uo=Tr.a`
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: Roboto;
   text-decoration: none;
   padding: 16px 0 16px 16px;
   transition: all 0.2s ease-in-out;
@@ -165,11 +173,15 @@
   }
 
   @media (min-width: 992px) {
-    color: #b1040e;
-    padding: ${({level:e})=>0!=e?"16px 0 16px 16px":"16px 0"};
-    border-bottom: ${({level:e,inTrail:t,isCurrent:n})=>0===e?n?"6px solid #2e2d29":t?"6px solid #b6b1a9":"6px solid transparent":""};
-    border-left: ${({level:e,isCurrent:t})=>0!=e?t?"6px solid #b1040e":"6px solid transparent":"none"};
-    margin-bottom: ${({level:e,inTrail:t,isCurrent:n})=>0===e?"-6px":""};
+    // color: #b1040e;
+    color: #2e2d29;
+    padding: ${({level:e})=>0!=e?"16px 0 16px 16px":"0 0 5.2rem 0"};
+    border-bottom: ${({level:e,inTrail:t,isCurrent:n})=>0===e?n?"6px solid #007C7E":t?"6px solid #b6b1a9":"6px solid transparent":""};
+    border-left: ${({level:e,isCurrent:t})=>0!=e?t?"6px solid #007C7E":"6px solid transparent":"none"};
+    // margin-bottom: ${({level:e,inTrail:t,isCurrent:n})=>0===e?"-6px":""};
+    // margin-bottom: 0;
+    // padding-top: 0;
+    // padding-bottom: 5.2rem;
 
     &:hover, &:focus {
       color: #2e2d29;
@@ -217,7 +229,7 @@
     border-bottom: ${e=>0===e.level?"none":"1px solid #d9d9d9"};
     padding: ${e=>e.level>0?"0 10px":"0"};
   }
-`,_o=Tr.div`
+`,_o=(Tr.div`
   width: 1px;
   height: 20px;
   margin: 0 6px;
@@ -228,4 +240,4 @@
   @media (min-width: 992px) {
     display: block;
   }
-`,vo=({title:e,url:t,items:n,expanded:r,level:o=0})=>{const i=ae(null),[a,s]=ne(!1),c=window.location.protocol+"//"+window.location.host;let l,u=new URL(c),p=!0,d=!1;t&&(p=!1,u=new URL(t.startsWith("/")?`${c}${t}`:t),l=u.pathname===window.location.pathname,d="/"!=t&&window.location.pathname.startsWith(u.pathname)&&!l);const f=ce((e=>{"Escape"===e.key&&a&&(s(!1),i.current.focus())}),[a]);return oe((()=>{a&&document.addEventListener("keydown",f),a||document.removeEventListener("keydown",f)}),[a]),Zr(Kr,{onOutsideFocus:()=>s(!1),component:ho,level:o,children:[Zr(lo,{level:o,children:[!p&&Zr(uo,{href:t,"aria-current":l?"page":void 0,level:o,isCurrent:l,inTrail:d,children:e}),p&&Zr(po,{children:e}),n&&r&&Zr(b,{children:[0===o&&Zr(_o,{}),Zr(co,{ref:i,onClick:()=>s(!a),"aria-expanded":a,"aria-label":(a?"Close":"Open")+` ${e} Submenu`,children:Zr(Qr,{style:{transform:a?"rotate(180deg)":"",transition:"transform 0.2s ease-in-out",width:"16px"}})})]})]}),n&&r&&Zr(fo,{open:a,level:o,children:n.map((e=>Zr(vo,{...e,level:o+1},e.id)))})]})},yo=((e,t)=>{if(null==customElements.get(e)){class t extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}}customElements.define(e,t)}const n=(e=>{const t={_rootsToObservers:new WeakMap,_roots:[],_executedScript:document.currentScript,props:{},render:({selector:n,clean:r=!1,replace:o=!1,inline:i=!1,initialProps:a={},propsSelector:s,elementName:c})=>{let l=!1;const u=()=>{if(!0===l)return;const u=(({selector:e,inline:t,elementName:n})=>{const r=document.currentScript;if(t&&null!=r&&r.parentNode)return[r.parentNode];const o=null==r?void 0:r.dataset.mountIn;return o?Array.from(document.querySelectorAll(o)).map((e=>{if(null!=n){const t=document.createElement(n),r=e.appendChild(t);return null!=r.shadowRoot?r.shadowRoot:r}return e})):e?Array.from(document.querySelectorAll(e)).map((e=>null!=e.shadowRoot?e.shadowRoot:e)):[]})({selector:n,inline:i,elementName:c});if(0===u.length)return;const{rootFragments:p}=(({island:e,widget:t,hostElements:n,clean:r,replace:o,initialProps:i,propsSelector:a})=>{const s=[];return n.forEach((n=>{const c=Ur(e,n,i,a);let l;if(r&&n.replaceChildren(),o)l=Wr(n.parentElement||document.body,n);else{const e=document.createElement("div");n.appendChild(e),l=Wr(n,e)}s.push(l),Gr({island:e,widget:t,rootFragment:l,props:c});const u=(({island:e,hostElement:t,initialProps:n,onNewProps:r,propsSelector:o})=>{const i=new MutationObserver((function(i){i.forEach((function(){r(Ur(e,t,n,o))}))})),a={attributes:!0,childList:!0,characterData:!0};return e._executedScript&&i.observe(e._executedScript,a),Fr(t).forEach((e=>{i.observe(e,Dr({},a,{subtree:!0}))})),o&&Br(o).forEach((e=>{i.observe(e,Dr({},a,{subtree:!0}))})),i.observe($r(t)?t.host:t,a),i})({island:e,hostElement:n,initialProps:i,onNewProps:n=>{Gr({island:e,widget:t,rootFragment:l,props:n})},propsSelector:a});e._rootsToObservers.set(l,u)})),{rootFragments:s}})({island:t,widget:e,clean:r,hostElements:u,replace:o,initialProps:a,propsSelector:s});t._roots=t._roots.concat(p),l=!0};u(),document.addEventListener("DOMContentLoaded",u),document.addEventListener("load",u)},rerender:n=>{t._roots.forEach((r=>{Gr({island:t,widget:e,rootFragment:r,props:Dr({},t.props,n)})}))},destroy:()=>{t._roots.forEach((e=>{var n;null==(n=t._rootsToObservers.get(e))||n.disconnect(),F(null,e)}))}};return t})(t);return Dr({},n,{render:t=>n.render(Dr({elementName:e},t)),injectStyles:e=>{n._roots.forEach((t=>{const n=document.createElement("style");n.innerHTML=e,t.parentNode.prepend(n)}))}})})(no,so);yo.render({selector:`[data-island="${no}"]`})})(),r})()));
+`,({title:e,url:t,items:n,expanded:r,level:o=0})=>{const i=ae(null),[a,s]=ne(!1),c=window.location.protocol+"//"+window.location.host;let l,u=new URL(c),p=!0,d=!1;t&&(p=!1,u=new URL(t.startsWith("/")?`${c}${t}`:t),l=u.pathname===window.location.pathname,d="/"!=t&&window.location.pathname.startsWith(u.pathname)&&!l);const f=ce((e=>{"Escape"===e.key&&a&&(s(!1),i.current.focus())}),[a]);return oe((()=>{a&&document.addEventListener("keydown",f),a||document.removeEventListener("keydown",f)}),[a]),Zr(Kr,{onOutsideFocus:()=>s(!1),component:ho,level:o,children:[Zr(lo,{level:o,children:[!p&&Zr(uo,{href:t,"aria-current":l?"page":void 0,level:o,isCurrent:l,inTrail:d,children:e}),p&&Zr(po,{children:e}),n&&r&&Zr(b,{children:Zr(co,{ref:i,onClick:()=>s(!a),"aria-expanded":a,"aria-label":(a?"Close":"Open")+` ${e} Submenu`,children:Zr(Qr,{style:{transform:a?"rotate(180deg)":"",transition:"transform 0.2s ease-in-out",width:"16px"}})})})]}),n&&r&&Zr(fo,{open:a,level:o,children:n.map((e=>Zr(_o,{...e,level:o+1},e.id)))})]})}),vo=((e,t)=>{if(null==customElements.get(e)){class t extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}}customElements.define(e,t)}const n=(e=>{const t={_rootsToObservers:new WeakMap,_roots:[],_executedScript:document.currentScript,props:{},render:({selector:n,clean:r=!1,replace:o=!1,inline:i=!1,initialProps:a={},propsSelector:s,elementName:c})=>{let l=!1;const u=()=>{if(!0===l)return;const u=(({selector:e,inline:t,elementName:n})=>{const r=document.currentScript;if(t&&null!=r&&r.parentNode)return[r.parentNode];const o=null==r?void 0:r.dataset.mountIn;return o?Array.from(document.querySelectorAll(o)).map((e=>{if(null!=n){const t=document.createElement(n),r=e.appendChild(t);return null!=r.shadowRoot?r.shadowRoot:r}return e})):e?Array.from(document.querySelectorAll(e)).map((e=>null!=e.shadowRoot?e.shadowRoot:e)):[]})({selector:n,inline:i,elementName:c});if(0===u.length)return;const{rootFragments:p}=(({island:e,widget:t,hostElements:n,clean:r,replace:o,initialProps:i,propsSelector:a})=>{const s=[];return n.forEach((n=>{const c=Ur(e,n,i,a);let l;if(r&&n.replaceChildren(),o)l=Wr(n.parentElement||document.body,n);else{const e=document.createElement("div");n.appendChild(e),l=Wr(n,e)}s.push(l),Gr({island:e,widget:t,rootFragment:l,props:c});const u=(({island:e,hostElement:t,initialProps:n,onNewProps:r,propsSelector:o})=>{const i=new MutationObserver((function(i){i.forEach((function(){r(Ur(e,t,n,o))}))})),a={attributes:!0,childList:!0,characterData:!0};return e._executedScript&&i.observe(e._executedScript,a),Fr(t).forEach((e=>{i.observe(e,Dr({},a,{subtree:!0}))})),o&&Br(o).forEach((e=>{i.observe(e,Dr({},a,{subtree:!0}))})),i.observe($r(t)?t.host:t,a),i})({island:e,hostElement:n,initialProps:i,onNewProps:n=>{Gr({island:e,widget:t,rootFragment:l,props:n})},propsSelector:a});e._rootsToObservers.set(l,u)})),{rootFragments:s}})({island:t,widget:e,clean:r,hostElements:u,replace:o,initialProps:a,propsSelector:s});t._roots=t._roots.concat(p),l=!0};u(),document.addEventListener("DOMContentLoaded",u),document.addEventListener("load",u)},rerender:n=>{t._roots.forEach((r=>{Gr({island:t,widget:e,rootFragment:r,props:Dr({},t.props,n)})}))},destroy:()=>{t._roots.forEach((e=>{var n;null==(n=t._rootsToObservers.get(e))||n.disconnect(),F(null,e)}))}};return t})(t);return Dr({},n,{render:t=>n.render(Dr({elementName:e},t)),injectStyles:e=>{n._roots.forEach((t=>{const n=document.createElement("style");n.innerHTML=e,t.parentNode.prepend(n)}))}})})(no,so);vo.render({selector:`[data-island="${no}"]`})})(),r})()));

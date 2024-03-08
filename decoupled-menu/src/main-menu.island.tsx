@@ -25,6 +25,7 @@ const MenuWrapper = styled.div<{ open?: boolean }>`
   @media (min-width: 992px) {
     display: block;
     position: relative;
+    height: 100%;
     width: 100%;
     margin: 0 auto;
   }
@@ -44,6 +45,7 @@ const TopList = styled.ul`
     background: transparent;
     padding: 0;
     font-size: 19px;
+    height: 100%;
     width: 100%;
 
   }
@@ -165,7 +167,7 @@ export const MainMenu = ({}) => {
   }
 
   return (
-    <OutsideClickHandler component="nav" style={{position: "relative"}} onOutsideFocus={() => setMenuOpen(false)}>
+    <OutsideClickHandler component="nav" style={{position: "relative", height: "100%"}} onOutsideFocus={() => setMenuOpen(false)}>
       <MobileMenuButton ref={buttonRef} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>
         {menuOpen ? <Close/> : <Hamburger/>}
         {menuOpen ? "Close" : "Menu"}
@@ -220,9 +222,11 @@ const Button = styled.button`
   }
 
   @media (min-width: 992px) {
-    color: #b1040e;
+    // color: #b1040e;
+    color: #2e2d29;
     background: transparent;
     border-radius: 0;
+    align-self: center;
 
     &:hover, &:focus {
       border-bottom: 1px solid #2e2d29;
@@ -243,12 +247,16 @@ const MenuItemContainer = styled.div<{ level?: number }>`
   @media (min-width: 992px) {
     width: ${props => props.level === 0 ? "fit-content" : "100%"};
     margin-bottom: ${props => props.level === 0 ? "6px" : ""};
+    height: 100%;
+    margin-bottom: 0;
+    align-items: end;
   }
 `
 
 const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: number }>`
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: Roboto;
   text-decoration: none;
   padding: 16px 0 16px 16px;
   transition: all 0.2s ease-in-out;
@@ -262,11 +270,15 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   }
 
   @media (min-width: 992px) {
-    color: #b1040e;
-    padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "16px 0"};
-    border-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "6px solid #2e2d29" : (inTrail ? "6px solid #b6b1a9" : "6px solid transparent")) : ""};
-    border-left: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "6px solid #b1040e" : "6px solid transparent") : "none"};
-    margin-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "-6px" : (inTrail ? "-6px" : "-6px")) : ""};
+    // color: #b1040e;
+    color: #2e2d29;
+    padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "0 0 5.2rem 0"};
+    border-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "6px solid #007C7E" : (inTrail ? "6px solid #b6b1a9" : "6px solid transparent")) : ""};
+    border-left: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "6px solid #007C7E" : "6px solid transparent") : "none"};
+    // margin-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "-6px" : (inTrail ? "-6px" : "-6px")) : ""};
+    // margin-bottom: 0;
+    // padding-top: 0;
+    // padding-bottom: 5.2rem;
 
     &:hover, &:focus {
       color: #2e2d29;
@@ -388,9 +400,9 @@ const MenuItem = ({title, url, items, expanded, level = 0}: { title: string, url
 
         {(items && expanded) &&
           <>
-            {level === 0 &&
+            {/* {level === 0 &&
               <MenuItemDivider/>
-            }
+            } */}
             <Button
               ref={buttonRef}
               onClick={() => setSubmenuOpen(!submenuOpen)}
