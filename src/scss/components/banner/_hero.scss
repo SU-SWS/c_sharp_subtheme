@@ -1,16 +1,43 @@
 @charset 'UTF-8';
 
+.su-hero {
+  .su-hero__media {
+    .gradient-overlay {
+      height: unset;
+    }
+  }
+}
+
+// Transparent overlay banner variant
 .csharp-wrapper--banner-transparent-overlay {
   .su-hero {
     .su-hero__media {
       min-height: auto;
       position: absolute;
-  
+
       img {
         opacity: 0.4;
       }
+
+      .gradient-overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 75%;
+        background: linear-gradient(108deg, #121212 28.73%, rgba(46, 45, 41, 0.00) 55.15%);
+        z-index: 9;
+      }
     }
-  
+
+    &.overlay-right {
+      .gradient-overlay {
+        right: 0;
+        left: unset;
+        background: linear-gradient(252deg, #121212 28.73%, rgba(46, 45, 41, 0.00) 55.15%);
+      }
+    }
+
     .su-hero__card {
       background: transparent;
       border: 0;
@@ -25,12 +52,12 @@
         max-width: 650px;
         text-align: unset;
       }
-  
+
       .su-card__contents {
         @include responsive-spacing('padding-top', 4);
         @include responsive-spacing('padding-bottom', 5);
 
-        color: $su-color-white;
+        color: $su-color-black-10;
         max-width: 100ch;
         margin: 0 auto;
         min-height: 220px;
@@ -45,7 +72,7 @@
         span {
           @include type-d;
         }
-  
+
         h2 {
           @include type-a;
 
@@ -75,7 +102,7 @@
         .su-card__button {
           a {
             border-radius: 7px;
-    
+
             &:hover,
             &:focus,
             &:active {
@@ -93,7 +120,6 @@
       .su-card {
         left: 80px;
       }
-
     }
 
     &.overlay-right {
