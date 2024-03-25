@@ -102,12 +102,21 @@
         .su-card__button {
           a {
             border-radius: 7px;
-
+            
             &:hover,
             &:focus,
             &:active {
               background-color: $su-color-white;
               color: $su-color-black;
+            }
+
+            @include grid-media-min('xl') {
+              padding: 1.5rem 3rem 1.8rem;
+              font-size: 2.8rem;
+            }
+  
+            @include grid-media-min('2xl') {
+              font-size: 3rem;
             }
           }
         }
@@ -115,24 +124,34 @@
     }
   }
 
-  @include grid-media-min('md') {
-    &.overlay-left {
-      .su-card {
+  &.overlay-left {
+    .su-card {
+      @include grid-media-min('md') {
         left: 80px;
+      }
+
+      @include grid-media-min('lg') {
+        left: 170px;
       }
     }
 
     &.overlay-right {
       .su-card {
-        right: 80px;
-        margin-left: auto;
-
-        .su-card__contents {
-          align-items: flex-end;
-
-          p {
-            text-align: end;
+        @include grid-media-min('md') {
+          right: 80px;
+          margin-left: auto;
+  
+          .su-card__contents {
+            align-items: flex-end;
+  
+            p {
+              text-align: end;
+            }
           }
+        }
+
+        @include grid-media-min('lg') {
+          right: 170px;
         }
       }
     }

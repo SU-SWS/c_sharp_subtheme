@@ -33,7 +33,8 @@ const MenuWrapper = styled.div<{ open?: boolean }>`
 
 const TopList = styled.ul`
   flex-wrap: wrap;
-  justify-content: flex-end;
+  // justify-content: flex-end;
+  justify-content: flex-start;
   list-style: none;
   margin: 0;
   background: #2e2d29;
@@ -42,13 +43,20 @@ const TopList = styled.ul`
 
   @media (min-width: 992px) {
     display: flex;
+    // justify-content: flex-start;
     background: transparent;
     padding: 0;
     font-size: 19px;
     height: 100%;
     width: 100%;
+    // container-type: size;
 
-  }
+  //   @container (min-height: 200px) {
+  //     a {
+  //       padding: 1.6rem 0;
+  //     }
+  //   }
+  // }
 `
 
 const MobileMenuButton = styled.button`
@@ -58,7 +66,7 @@ const MobileMenuButton = styled.button`
   box-shadow: none;
   background: transparent;
   border: 0;
-  border-bottom: 2px solid transparent;
+  // border-bottom: 1px solid transparent;
   color: #2e2d29;
   padding: 0;
   display: flex;
@@ -67,7 +75,7 @@ const MobileMenuButton = styled.button`
   font-size: 1.6rem;
 
   &:hover, &:focus {
-    border-bottom: 2px solid #2e2d29;
+    // border-bottom: 1px solid #2e2d29;
     background: transparent;
     color: #2e2d29;
     box-shadow: none;
@@ -114,7 +122,7 @@ const SearchContainer = styled.div`
     justify-content: center;
     background: none;
     color: #b1040e;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     border-radius: 999px;
     aspect-ratio: 1;
     padding: 0;
@@ -204,7 +212,7 @@ const Button = styled.button`
   color: #ffffff;
   background: #b1040e;
   border: none;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
   padding: 0;
   margin: 0 0 -4px;
   box-shadow: none;
@@ -216,7 +224,7 @@ const Button = styled.button`
 
   &:hover, &:focus {
     box-shadow: none;
-    border-bottom: 1px solid #b1040e;
+    border-bottom: 2px solid #b1040e;
     background: #f4f4f4;
     color: #000000;
   }
@@ -226,10 +234,12 @@ const Button = styled.button`
     color: #2e2d29;
     background: transparent;
     border-radius: 0;
-    align-self: center;
+    // align-self: center;
+    width: auto;
+    margin-left: 1rem;
 
     &:hover, &:focus {
-      border-bottom: 1px solid #2e2d29;
+      border-bottom: 2px solid #2e2d29;
       color: #2e2d29;
       background: transparent;
     }
@@ -249,14 +259,15 @@ const MenuItemContainer = styled.div<{ level?: number }>`
     margin-bottom: ${props => props.level === 0 ? "6px" : ""};
     height: 100%;
     margin-bottom: 0;
-    align-items: end;
+    // align-items: end;
+    align-items: unset;
   }
 `
 
 const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: number }>`
   color: #ffffff;
   font-weight: 500;
-  font-family: Roboto;
+  font-family: Roboto Slab;
   text-decoration: none;
   padding: 16px 0 16px 16px;
   transition: all 0.2s ease-in-out;
@@ -272,7 +283,9 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   @media (min-width: 992px) {
     // color: #b1040e;
     color: #2e2d29;
-    padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "0 0 5.2rem 0"};
+    padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "1.6rem 0"};
+    // padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "0 0 2rem 0"};
+    // margin-top: ${({level}) => level != 0 ? "16px 0 16px 16px" : "1.5rem"};
     border-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "6px solid #007C7E" : (inTrail ? "6px solid #b6b1a9" : "6px solid transparent")) : ""};
     border-left: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "6px solid #007C7E" : "6px solid transparent") : "none"};
     // margin-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "-6px" : (inTrail ? "-6px" : "-6px")) : ""};
@@ -285,6 +298,22 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
       border-left: ${({level}) => level != 0 ? "6px solid #2e2d29" : "none"};
     }
   }
+
+  // @media (min-width: 1200px) {
+  //   // padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "0 0 5.2rem 0"};
+  //   padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "0 0 4.7rem 0"};
+  // }
+
+  // @media (min-width: 1500px) {
+  //   // padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "0 0 5.2rem 0"};
+  //   padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "0 0 4.7rem 0"};
+  // }
+
+  @media (min-width: 1396px) {
+    // padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "0 0 5.2rem 0"};
+    padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "0 0 4.7rem 0"};
+    margin-top: ${({level}) => level != 0 ? "16px 0 16px 16px" : "1.5rem"};
+  }
 `
 
 const NoLink = styled.span<{ level?: number }>`
@@ -294,7 +323,10 @@ const NoLink = styled.span<{ level?: number }>`
   padding: 16px 0 16px 16px;
 
   @media (min-width: 992px) {
-    color: #b1040e;
+    // color: #b1040e;
+    color: #2e2d29;
+    font-weight: 500;
+    font-family: Roboto Slab;
     padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "16px 0"};
   }
 `
@@ -413,6 +445,7 @@ const MenuItem = ({title, url, items, expanded, level = 0}: { title: string, url
                 transform: submenuOpen ? "rotate(180deg)" : "",
                 transition: "transform 0.2s ease-in-out",
                 width: "16px",
+                marginTop: "1.5rem",
               }}
               />
             </Button>
