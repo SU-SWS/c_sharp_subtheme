@@ -198,7 +198,7 @@ export const MainMenu = ({}) => {
 
         </SearchContainer>
         <TopList>
-          {menuTree.items.sort((a, b) => a.weight < b.weight ? -1 : 1).map(item => <MenuItem key={item.id} {...item}/>)}
+          {menuItems.map(item => <MenuItem key={item.id} {...item}/>)}
         </TopList>
       </MenuWrapper>
     </nav>
