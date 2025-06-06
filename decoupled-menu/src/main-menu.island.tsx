@@ -144,7 +144,7 @@ export const MainMenu = ({}) => {
 
     fetch(DRUPAL_DOMAIN + '/jsonapi/menu_items/main')
       .then(res => res.json())
-      .then(data => setMenuItems(deserialize(data)))
+      .then(data => setMenuItems(buildMenuTree(deserialize(data)).items || []))
       .catch(err => console.error(err));
   }, [])
 
@@ -157,8 +157,7 @@ export const MainMenu = ({}) => {
 
   useEventListener("keydown", handleEscape);
 
-  const menuTree = useMemo(() => buildMenuTree(menuItems), [menuItems]);
-  if (!menuTree.items || menuTree.items?.length === 0) return;
+  if (menuItems.length === 0) return;
 
   // Remove the default menu.
   const existingMenu = document.getElementsByClassName('su-multi-menu');
