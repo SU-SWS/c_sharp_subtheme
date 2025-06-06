@@ -167,6 +167,7 @@ export const MainMenu = ({}) => {
     <nav
       ref={navRef}
       style={{position: "relative"}}
+      className="preact-main-menu"
     >
       <MobileMenuButton
         ref={buttonRef}
@@ -424,7 +425,7 @@ const MenuItem = ({id, title, url, items, expanded, level = 0}: {
       {(items && expanded) &&
         <MenuList open={submenuOpen} level={level}>
 
-          {items.sort((a, b) => a.weight < b.weight ? -1 : 1).map(item =>
+          {items.map(item =>
             <MenuItem key={item.id} {...item} level={level + 1}/>
           )}
         </MenuList>
