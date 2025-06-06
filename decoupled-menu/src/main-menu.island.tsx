@@ -144,7 +144,11 @@ export const MainMenu = ({}) => {
 
     fetch(DRUPAL_DOMAIN + '/jsonapi/menu_items/main')
       .then(res => res.json())
-      .then(data => setMenuItems(buildMenuTree(deserialize(data)).items || []))
+      .then(data => {
+        const built = buildMenuTree(deserialize(data)).items || [];
+        console.log('Fetched and built menu items:', built);
+        setMenuItems(built);
+      })
       .catch(err => console.error(err));
   }, [])
 
@@ -156,6 +160,8 @@ export const MainMenu = ({}) => {
   }, [menuOpen]);
 
   useEventListener("keydown", handleEscape);
+
+  console.log(menuItems.length);
 
   if (menuItems.length === 0) return;
 

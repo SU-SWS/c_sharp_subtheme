@@ -5,6 +5,8 @@
  * Preprocess functions for the c-ShARP Subtheme.
  */
 
+use Drupal\Core\Menu\MenuTreeParameters;
+
 /**
  * Prepares variables for the html.html.twig template.
  */
@@ -56,4 +58,39 @@ function c_sharp_subtheme_preprocess_page_title(&$variables) {
   if (\Drupal::request()->getPathInfo() == '/search') {
     $variables['title']['#markup'] = 'Search Shared Facilities';
   }
+}
+
+function c_sharp_subtheme_preprocess_block(&$variables){
+  if ($variables['plugin_id'] == 'system_menu_block:main' && \Drupal::hasService('config_pages.loader')) {
+    /** @var \Drupal\config_pages\ConfigPagesLoaderServiceInterface $config_pages */
+    $config_pages = \Drupal::service('config_pages.loader');
+    $new_menu = (bool) $config_pages->getValue('stanford_basic_site_settings', 'su_site_new_menu', 0, 'value');
+    if ($new_menu) {
+      $variables['attributes']['data-island'] = 'main-menu-island';
+      $variables['#attached']['library'][] = 'stanford_basic/decoupled_menu';
+      $menu = \Drupal::menuTree()->load('main', new MenuTreeParameters());
+      $variables['#attached']['drupalSettings']['stanford_basic']['decoupledMenuItems'] = _c_sharp_subtheme_get_menu_tree_links($menu);
+      $variables['elements']['#cache']['tags'][] = 'stanford_profile_helper:menu_links';
+    }
+  }
+}
+
+function _c_sharp_subtheme_get_menu_tree_links(array $items) {
+  $tree = [];
+  foreach ($items as $id => $item) {
+    if (!$item->link->isEnabled()) {
+      continue;
+    }
+    $tree[] = [
+      'id' => $id,
+      'url' => $item->link->getUrlObject()->toString(),
+      'title' => $item->link->getTitle(),
+      'expanded' => $item->link->isExpanded(),
+      'parent' => $item->link->getParent(),
+      'weight' => $item->link->getWeight(),
+      'items' => _stanford_basic_get_menu_tree_links($item->subtree),
+    ];
+  }
+  uasort($tree, fn($a, $b) => $a['weight'] != $b['weight'] ? $a['weight'] <=> $b['weight'] : $a['title'] > $b['title']);
+  return array_values($tree);
 }
