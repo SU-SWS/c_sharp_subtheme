@@ -12,22 +12,22 @@
         padding-right: 2rem;
         max-width: max-content;
       }
-  
+
       .su-lockup__wordmark-wrapper {
         margin-top: 1rem;
         margin-bottom: 1rem;
       }
-  
+
       .su-lockup__wordmark {
         @include grid-media-min('md') {
           font-size: 3.8rem;
         }
-  
+
         @include grid-media-min('lg') {
           font-size: 4.1rem;
         }
       }
-  
+
       .su-lockup__line4{
         font-family: $su-font-slab;
         font-weight: 400;
@@ -35,11 +35,11 @@
         margin-top: 1.5rem;
         text-transform: unset;
         text-align: end;
-  
+
         @include grid-media-min('md') {
           font-size: 2.3rem;
         }
-  
+
         @include grid-media-min('lg') {
           font-size: 2.7rem;
         }
@@ -83,4 +83,19 @@
       }
     }
   }
+
+  // From 1199px down to 992px the mobile hamburger is on top of search.
+  @include grid-media-only('lg'){
+    > section:last-of-type {
+      flex-flow: column wrap;
+    }
+  }
+
+  // Moved hamburger out of brandbar.
+  @include grid-media-only('md'){
+    nav.preact-main-menu button {
+      top: -60px;
+    }
+  }
 }
+
