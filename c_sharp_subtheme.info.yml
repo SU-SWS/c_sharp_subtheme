@@ -29,4 +29,4 @@ libraries-override:
       - core/drupalSettings
   stanford_basic/decoupled_menu:
     js:
-      decoupled-menu/dist/islands/main-menu.island.umd.js: decoupled-menu/dist/islands/main-menu.island.umd.js
+      decoupled-menu/dist/islands/main-menu.island.js: decoupled-menu/dist/islands/main-menu.island.umd.js
