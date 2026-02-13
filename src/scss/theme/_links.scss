@@ -16,7 +16,7 @@
       &::before {
         color: $csharp-color-green;
       }
-  
+
       .is-active {
         color: $csharp-color-green;
       }
@@ -38,7 +38,7 @@ a {
   &:hover,
   &:active {
     color:  $su-color-black;
-    
+
     &::after {
       background-color: $su-color-black;
     }
@@ -61,7 +61,7 @@ a {
     &:hover,
     &:active {
       color:  $su-color-black;
-      
+
       &::after {
         background-color: $su-color-black;
       }
@@ -69,6 +69,14 @@ a {
       svg {
         fill: $su-color-black;
       }
+    }
+  }
+}
+
+.su-secondary-nav {
+  a {
+    &:after {
+      background-color: transparent;
     }
   }
 }
