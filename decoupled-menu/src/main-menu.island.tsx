@@ -349,6 +349,12 @@ const ListItem = styled.li<{ level?: number }>`
   }
 `
 
+/**
+ * Renders a single menu item (link and optional submenu).
+ * The caret and submenu are shown only when this item has children (items.length > 0).
+ * The `expanded` prop is accepted for API compatibility but is not used for display,
+ * consistent with our current documentation, which ignores this Drupal setting. 
+ */
 const MenuItem = ({id, title, url, items, expanded, level = 0}: {
   title: string,
   url: string,
@@ -403,7 +409,8 @@ const MenuItem = ({id, title, url, items, expanded, level = 0}: {
           <NoLink>{title}</NoLink>
         }
 
-        {(items && expanded) &&
+        {/* Show caret only when this item has child menu items (not based on expanded). */}
+        {items && items.length > 0 &&
           <>
             <Button
               ref={buttonRef}
@@ -422,7 +429,8 @@ const MenuItem = ({id, title, url, items, expanded, level = 0}: {
         }
       </MenuItemContainer>
 
-      {(items && expanded) &&
+      {/* Render submenu only when this item has children; open state is controlled by submenuOpen. */}
+      {items && items.length > 0 &&
         <MenuList open={submenuOpen} level={level}>
 
           {items.map(item =>
