@@ -97,5 +97,11 @@
       top: -60px;
     }
   }
+
+  @include grid-media-max('xl'){
+    .region-search {
+      display: none;
+    }
+  }
 }
 
