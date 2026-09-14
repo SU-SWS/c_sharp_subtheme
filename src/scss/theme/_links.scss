@@ -74,6 +74,15 @@ a {
   }
 }
 
+.su-local-footer__action-links {
+  a {
+    &::after {
+      background-color: $csharp-color-green;
+    }
+  }
+
+}
+
 .su-secondary-nav {
   a {
     &:after {
