@@ -84,13 +84,6 @@
     }
   }
 
-  // From 1199px down to 992px the mobile hamburger is on top of search.
-  @include grid-media-only('lg'){
-    > section:last-of-type {
-      flex-flow: column wrap;
-    }
-  }
-
   @include grid-media-max('lg'){
     .region-search {
       display: none;
