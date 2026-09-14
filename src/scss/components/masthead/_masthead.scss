@@ -91,13 +91,6 @@
     }
   }
 
-  // Moved hamburger out of brandbar.
-  @include grid-media-only('md'){
-    nav.preact-main-menu button {
-      top: -60px;
-    }
-  }
-
   @include grid-media-max('lg'){
     .region-search {
       display: none;
