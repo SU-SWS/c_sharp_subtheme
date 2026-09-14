@@ -98,7 +98,7 @@
     }
   }
 
-  @include grid-media-max('xl'){
+  @include grid-media-max('lg'){
     .region-search {
       display: none;
     }
