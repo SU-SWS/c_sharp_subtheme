@@ -48,7 +48,7 @@
   }
 
   .su-site-search {
-    @include grid-media-min('sm') {
+    @include grid-media-min('lg') {
       display: block;
       padding-left: 4rem;
       min-width: 30rem;
