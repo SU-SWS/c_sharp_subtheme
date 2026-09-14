@@ -10,13 +10,13 @@ import {useEffect, useRef} from "preact/compat";
 const FilterContainer = styled.div`
   margin-top: 39px;
 
-  @media (min-width: 576px) {
+  @media (min-width: 1200px) {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 6rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1200px) {
     display: block;
     float: left;
     width: 33%;

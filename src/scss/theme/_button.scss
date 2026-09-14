@@ -4,7 +4,8 @@
 #signup-submit,
 .su-button,
 .su-button--big,
-.su-link--internal {
+.su-link--internal,
+.su-button--big.su-link--external {
   background-color: $csharp-color-green;
   color: $su-color-white;
 
@@ -45,6 +46,15 @@ a {
 
       &::after {
         background-color: $csharp-color-green;
+      }
+    }
+
+    &.su-button--big {
+      color: $su-color-white;
+
+      &:hover,
+      &:focus {
+        color: $su-color-white;
       }
     }
   }

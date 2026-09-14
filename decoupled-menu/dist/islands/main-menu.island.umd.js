@@ -104,7 +104,7 @@
     }
   }
 
-  @media (min-width: 576px) {
+  @media (min-width: 1200px) {
     display: none;
   }
 `,xo=({})=>{var e,t,n;ue((()=>{const e=new CustomEvent("web-component-mount",{detail:{target:t,parent:n},bubbles:!0});return dispatchEvent(e),()=>{const e=new CustomEvent("web-component-unmount",{detail:{target:t,parent:n},bubbles:!0});dispatchEvent(e)}}),[t=mo]);const[r,o]=se((null===(e=window.drupalSettings)||void 0===e||null===(e=e.stanford_basic)||void 0===e?void 0:e.decoupledMenuItems)||[]),[i,a]=se(!1),s=pe(null),c=pe(null);yo(c,(()=>a(!1))),le((()=>{r.length||fetch(ao+"/jsonapi/menu_items/main").then((e=>e.json())).then((e=>{return o(io((t=e,t?oo.deserialize(t,n):null)).items||[]);var t,n})).catch((e=>console.error(e)))}),[]);if(ho("keydown",de((e=>{var t;"Escape"===e.key&&i&&(a(!1),null===(t=s.current)||void 0===t||t.focus())}),[i])),0===r.length)return;const l=document.getElementsByClassName("su-multi-menu");return l.length>0&&l[0].remove(),co("nav",{ref:c,style:{position:"relative"},className:"preact-main-menu",children:[co(wo,{ref:s,onClick:()=>a(!i),"aria-expanded":i,children:[co(i?po:uo,{}),i?"Close":"Menu"]}),co(bo,{open:i,children:[co(So,{children:co("form",{action:"/search",method:"get",children:[co("label",{htmlFor:"mobile-search-input",children:"Keyword Search"}),co("div",{style:{position:"relative"},children:[co("input",{id:"mobile-search-input",type:"text",placeholder:"Search Shared Facilities",name:"key"}),co("button",{type:"submit",children:[co(fo,{style:{width:"25px",height:"25px"}}),co("span",{className:"visually-hidden",children:"Submit Search"})]})]})]})}),co(go,{children:r.map((e=>co(ko,{...e},e.id)))})]})]})},Co=Jr.button`

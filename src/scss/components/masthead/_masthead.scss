@@ -48,7 +48,7 @@
   }
 
   .su-site-search {
-    @include grid-media-min('sm') {
+    @include grid-media-min('lg') {
       display: block;
       padding-left: 4rem;
       min-width: 30rem;
@@ -84,17 +84,9 @@
     }
   }
 
-  // From 1199px down to 992px the mobile hamburger is on top of search.
-  @include grid-media-only('lg'){
-    > section:last-of-type {
-      flex-flow: column wrap;
-    }
-  }
-
-  // Moved hamburger out of brandbar.
-  @include grid-media-only('md'){
-    nav.preact-main-menu button {
-      top: -60px;
+  @include grid-media-max('lg'){
+    .region-search {
+      display: none;
     }
   }
 }
